@@ -25,6 +25,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Configure RuboCop
 gem 'rubocop'
 
+#Use Devise TOken Auth for authentication
+gem 'devise_token_auth'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
