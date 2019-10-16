@@ -16,45 +16,14 @@ ActiveRecord::Schema.define(version: 2019_10_07_153556) do
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
-    t.string "gender", default: "", null: false
-    t.string "author", default: "", null: false
-    t.string "image", default: "", null: false
-    t.string "title", default: "", null: false
-    t.string "editor", default: "", null: false
-    t.string "year", default: "", null: false
+    t.string "gender", default: "Thriller", null: false
+    t.string "author", default: "Stephen King", null: false
+    t.string "image", default: "No image", null: false
+    t.string "title", default: "Default Title", null: false
+    t.string "editor", default: "Default Editor", null: false
+    t.string "year", default: "9999", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "provider", default: "email", null: false
-    t.string "uid", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.boolean "allow_password_change", default: false
-    t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "nickname"
-    t.string "image"
-    t.string "email"
-    t.json "tokens"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "sign_in_count", default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
 end
