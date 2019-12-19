@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Book do
-  let(:book) { build(:book) }
+  subject(:book) { build(:book) }
 
   it { is_expected.to be_valid }
   it { is_expected.to validate_presence_of(:gender) }
