@@ -1,35 +1,13 @@
 require 'rails_helper'
 
 describe Book do
-  let(:book) { build(:book) }
+  subject(:book) { build(:book) }
 
-  context 'When creates a book' do
-    it 'validates presence of :gender' do
-      is_expected.to validate_presence_of(:gender)
-    end
-
-    it 'validates presence of :gender' do
-      is_expected.to validate_presence_of(:gender)
-    end
-
-    it 'validates presence of :author' do
-      is_expected.to validate_presence_of(:author)
-    end
-
-    it 'validates presence of :image' do
-      is_expected.to validate_presence_of(:image)
-    end
-
-    it 'validates presence of :title' do
-      is_expected.to validate_presence_of(:title)
-    end
-
-    it 'validates presence of :editor' do
-      is_expected.to validate_presence_of(:editor)
-    end
-
-    it 'validates presence of :year' do
-      is_expected.to validate_presence_of(:year)
-    end
-  end
+  it { is_expected.to be_valid }
+  it { is_expected.to validate_presence_of(:gender) }
+  it { is_expected.to validate_presence_of(:author) }
+  it { is_expected.to validate_presence_of(:image) }
+  it { is_expected.to validate_presence_of(:title) }
+  it { is_expected.to validate_presence_of(:editor) }
+  it { is_expected.to validate_presence_of(:year) }
 end
