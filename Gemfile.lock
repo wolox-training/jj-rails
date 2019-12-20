@@ -218,6 +218,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 6.0.0)
+  rake (~> 13.0, >= 13.0.0)
   rspec-rails (~> 3.9)
   rubocop
   shoulda-matchers (~> 4.1, >= 4.1.2)
