@@ -1,4 +1,4 @@
 class Rent < ApplicationRecord
-  validates :begin, :end, :user, :book, presence: true
+  validates :user, :book, :begin, :end, presence: true
   belongs_to :user, :book
 end
