@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2019_12_19_132204) do
   end
 
   create_table "rents", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "book_id"
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
     t.datetime "begin", null: false
     t.datetime "end", null: false
     t.datetime "created_at", precision: 6, null: false
