@@ -1,9 +1,11 @@
 class Rent < ApplicationRecord
-  validates :user_id, :book_id, :begin_date, :end_date, presence: true
+  validates :user, :book, :begin_date, :end_date, presence: true
   validate :begin_date_greater_than_end_date, :end_date_less_than_begin_date
 
   belongs_to :user
   belongs_to :book
+
+  private
 
   def begin_date_greater_than_end_date
     errors.add(:begin_date, 'begin_date cannot be greater than end_date') if begin_date > end_date
