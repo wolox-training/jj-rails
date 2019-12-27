@@ -1,14 +1,16 @@
 class Rent < ApplicationRecord
-  validates :user, :book, :begin, :end, presence: true
-  validate :begin_greater_than_end, :end_less_than_begin
+  validates :user_id, :book_id, :begin_date, :end_date, presence: true
+  validate :begin_date_greater_than_end_date, :end_date_less_than_begin_date
 
-  belongs_to :user, :book
+  belongs_to :user
+  belongs_to :book
 
-  def begin_greater_than_end
-    errors.add(:begin, 'begin date cannot be greater than end date') if :begin > :end
+
+  def begin_date_greater_than_end_date
+    errors.add(:begin_date, 'begin_date cannot be greater than end_date') if begin_date > end_date
   end
 
-  def end_less_than_begin
-    errors.add(:end, 'end date cannot be less than begin date') if :end < :begin
+  def end_date_less_than_begin_date
+    errors.add(:end_date, 'end_date cannot be less than begin_date') if end_date < begin_date
   end
 end
