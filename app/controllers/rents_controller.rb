@@ -2,21 +2,23 @@ class RentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render_paginated Rent.all
+    render_paginated current_user.rents.all
   end
 
   def create
-    rent = Rent.new(permitted_params)
-    if rent.save
-      render json: rent, status: :created
+    @rent = Rent.new(permitted_params)
+    if @rent.save
+      byebug
+      render json: @rent, status: :created
     else
-      render json: { errors: rent.errors.messages }, status: :unprocessable_entity
+      render json: { errors: @rent.errors.messages }, status: :unprocessable_entity
     end
   end
 
   def permitted_params
     params
       .require(:rent)
-      .permit(:user_id, :book_id, :begin_date, :end_date)
+      .permit(:book_id, :begin_date, :end_date)
+      .merge(user_id: current_user.id)
   end
 end
