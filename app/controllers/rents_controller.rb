@@ -8,7 +8,6 @@ class RentsController < ApplicationController
   def create
     @rent = Rent.new(permitted_params)
     if @rent.save
-      byebug
       render json: @rent, status: :created
     else
       render json: { errors: @rent.errors.messages }, status: :unprocessable_entity
