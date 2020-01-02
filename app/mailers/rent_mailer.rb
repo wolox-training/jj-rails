@@ -1,0 +1,2 @@
+class RentMailer < ApplicationMailer
+end
