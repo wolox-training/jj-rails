@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe BooksController do
   include_context 'Authenticated User'
-  let(:response_body) do
-    ActiveSupport::JSON.decode(response.body) if response.present? && response.body.present?
-  end
+  include_context 'Decoded Response Body'
 
   describe 'GET #index' do
     subject!(:http_request) { get :index }
@@ -36,7 +34,7 @@ describe BooksController do
       let(:book) { create(:book) }
       let(:book_id) { book.id }
 
-      it 'responses with the book json' do
+      it 'responds with the book json' do
         expect(response_body.to_json).to eq BookSerializer.new(
           book, root: false
         ).to_json
