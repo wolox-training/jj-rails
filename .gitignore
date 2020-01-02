@@ -24,3 +24,5 @@
 
 # Ignore tests
 /test/*
+
+dump.rdb
