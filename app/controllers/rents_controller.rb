@@ -15,7 +15,7 @@ class RentsController < ApplicationController
   end
 
   private
-  
+
   def permitted_params
     params
       .require(:rent)
