@@ -8,7 +8,6 @@ class RentsController < ApplicationController
   def create
     rent = Rent.new(permitted_params)
     if rent.save
-      # byebug
       mail = RentMailer.rent_creation(current_user.email, rent, rent.book)
       mail.deliver_later
       render json: rent, status: :created
