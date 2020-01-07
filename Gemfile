@@ -37,6 +37,9 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'rake', '~> 13.0', '>= 13.0.0'
 
+gem 'sidekiq', '~> 6.0', '>= 6.0.4'
+
+gem 'redis-rails', '~> 5.0', '>= 5.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +50,8 @@ group :development, :test do
 
   # Set Ruby objects as test data
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
+
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
 end
 
 group :development do
