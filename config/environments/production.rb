@@ -47,7 +47,10 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :redis_store, Rails.application.secrets.url, { expires_in: 90.minutes }
+  config.public_file_server.headers = {
+    'Cache-Control' => "public, max-age=#{2.days.to_i}"
+  }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -62,11 +65,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
-    :user_name => Rails.application.secrets.username,
-    :password => Rails.application.secrets.password,
-    :address => Rails.application.secrets.address,
-    :domain => Rails.application.secrets.domain,
-    :port => Rails.application.secrets.port,
+    :user_name => Rails.application.secrets.mail.username,
+    :password => Rails.application.secrets.mail.password,
+    :address => Rails.application.secrets.mail.address,
+    :domain => Rails.application.secrets.mail.domain,
+    :port => Rails.application.secrets.mail.port,
     :authentication => :cram_md5
   }
 
