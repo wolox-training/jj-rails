@@ -15,7 +15,7 @@ Rails.application.configure do
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
-    config.cache_store = :redis_store, Rails.application.secrets.url, { expires_in: 90.minutes }
+    config.cache_store = :redis_store, Rails.application.secrets.redis[:url], { expires_in: 90.minutes }
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
@@ -36,11 +36,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
-    :user_name => Rails.application.secrets.username,
-    :password => Rails.application.secrets.password,
-    :address => Rails.application.secrets.address,
-    :domain => Rails.application.secrets.domain,
-    :port => Rails.application.secrets.port,
+    :user_name => Rails.application.secrets.mail[:username],
+    :password => Rails.application.secrets.mail[:password],
+    :address => Rails.application.secrets.mail[:address],
+    :domain => Rails.application.secrets.mail[:domain],
+    :port => Rails.application.secrets.mail[:port],
     :authentication => :cram_md5
   }
 
