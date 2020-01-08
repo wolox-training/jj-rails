@@ -5,6 +5,6 @@ class RentMailer < ApplicationMailer
     @genre = book.gender
     @begin_date = rent.begin_date
     @end_date = rent.end_date
-    mail(to: email, subject: '[Wbooks] New book rent', &:html)
+    mail(to: email, subject: t('rent_mailer.subject'), &:html)
   end
 end

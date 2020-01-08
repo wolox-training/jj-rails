@@ -1,5 +1,5 @@
 class RentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_locale
 
   def index
     render_paginated current_user.rents.includes(:book).all
@@ -16,6 +16,10 @@ class RentsController < ApplicationController
   end
 
   private
+
+  def set_locale
+    I18n.locale = current_user.locale || I18n.default_locale
+  end
 
   def permitted_params
     params
