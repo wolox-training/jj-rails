@@ -7,6 +7,7 @@ class RentsController < ApplicationController
 
   def create
     rent = Rent.new(permitted_params)
+    authorize rent
     if rent.save
       RentMailer.rent_creation(current_user.email, rent, rent.book).deliver_later
       render json: rent, status: :created
