@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :book do
-    gender { Faker::Book.genre }
+    genre { Faker::Book.genre }
     author { Faker::Book.author }
     image { Faker::Internet.url }
     title { Faker::Book.title }
