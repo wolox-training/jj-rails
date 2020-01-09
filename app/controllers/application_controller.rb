@@ -8,6 +8,6 @@ class ApplicationController < ActionController::API
   end
 
   rescue_from Pundit::NotAuthorizedError do |_exception|
-    render json: { "message": 'Not authorize for the requested resource' }, status: :forbidden
+    render json: { "message": 'Not authorized for the requested resource' }, status: :forbidden
   end
 end
