@@ -6,4 +6,8 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound do |_exception|
     render json: { "message": 'The requested resource was not found' }, status: :not_found
   end
+
+  rescue_from Pundit::NotAuthorizedError do |_exception|
+    render json: { "message": 'Not authorize for the requested resource' }, status: :forbidden
+  end
 end

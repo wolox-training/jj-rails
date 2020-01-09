@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   resources :books, only: %i[index show]
 
-  resources :rents, only: %i[index create]
+  resources :rents, only: %i[index show create]
 end

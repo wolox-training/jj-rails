@@ -1,5 +1,5 @@
 class RentPolicy < ApplicationPolicy
-  def create?
-    user.present?
+  def show?
+    user == record.user
   end
 end
