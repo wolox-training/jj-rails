@@ -1,0 +1,12 @@
+en:
+  rent_mailer:
+    subject: "[Wbooks] New rent book"
+    mail_title: Congrats, you have rent a book
+    book_title: "Title: %{title}"
+    author: "Author: %{author}"
+    genre: "Genre: %{genre}"
+    between_dates: The rent begins %{begin_date} and ends %{end_date}
+    firm: Thanks for renting in Wbooks!
+  time:
+    formats:
+      default: "%m-%d-%Y"
