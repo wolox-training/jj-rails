@@ -1,0 +1,12 @@
+es:
+  rent_mailer:
+    subject: "[Wbooks] Nueva alquiler de libro"
+    mail_title: Felicitaciones, has alquilado un libro
+    book_title: "Título: %{title}"
+    author: "Autor: %{author}"
+    genre: "Género: %{genre}"
+    between_dates: El alquiler comienza %{begin_date} y termina %{end_date}
+    firm: Gracias por haber alquilado en Wbooks!
+  time:
+    formats:
+      default: "%d-%m-%Y"
