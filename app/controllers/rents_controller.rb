@@ -5,6 +5,12 @@ class RentsController < ApplicationController
     render_paginated current_user.rents.includes(:book).all
   end
 
+  def show
+    rent = Rent.find(params.require(:id))
+    authorize rent
+    render json: rent
+  end
+
   def create
     rent = Rent.new(permitted_params)
     if rent.save
