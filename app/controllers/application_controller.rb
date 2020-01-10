@@ -11,6 +11,7 @@ class ApplicationController < ActionController::API
 
   rescue_from Pundit::NotAuthorizedError do |_exception|
     render json: { "message": 'Not authorized for the requested resource' }, status: :forbidden
+  end
 
   private
 
