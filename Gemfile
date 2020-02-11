@@ -33,6 +33,8 @@ gem 'devise_token_auth', '~> 1.1', '>= 1.1.3'
 
 gem 'wor-paginate', '~> 0.1.10'
 
+gem 'httparty', '~> 0.17.3'
+
 gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'rake', '~> 13.0', '>= 13.0.0'
