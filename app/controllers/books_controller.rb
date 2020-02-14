@@ -8,4 +8,8 @@ class BooksController < ApplicationController
   def show
     render json: Book.find(params.require(:id))
   end
+
+  def detailed_book
+    render json: OpenLibrary::Service.get_book(params.require(:isbn))
+  end
 end
