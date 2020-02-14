@@ -1,8 +1,8 @@
 module OpenLibrary
   class ResponseAdapter
     def self.book_response(response_body, isbn)
-      raise Errors::InvalidResponseFormatError if
-        response_body.nil? || response_body.empty?
+      raise Errors::BookNotFound if
+        response_body.empty?
 
       {
         "isbn": isbn,
