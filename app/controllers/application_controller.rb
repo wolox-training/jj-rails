@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
   end
 
   rescue_from ActionController::ParameterMissing do |_exception|
-    render json: { "message": 'sacunaaaa' }, status: :unprocessable_entity
+    render json: { "message": 'Missing params' }, status: :unprocessable_entity
   end
 
   private
