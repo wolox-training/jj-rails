@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 describe BooksController do
-  include_context 'Authenticated User'
-  include_context 'Decoded Response Body'
+  include_context 'with an authenticated user'
+  include_context 'with a decoded response body'
 
   describe 'GET #index' do
     subject!(:http_request) { get :index }
 
-    context 'When fetching all the books' do
+    context 'when fetching all the books' do
       let(:books) { create_list(:book, 35) }
 
       it 'responses with the books json' do

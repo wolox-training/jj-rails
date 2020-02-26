@@ -13,6 +13,10 @@ class ApplicationController < ActionController::API
     render json: { "message": 'Not authorized for the requested resource' }, status: :forbidden
   end
 
+  rescue_from ActionController::ParameterMissing do |_exception|
+    render json: { "message": 'sacunaaaa' }, status: :unprocessable_entity
+  end
+
   private
 
   def set_locale
