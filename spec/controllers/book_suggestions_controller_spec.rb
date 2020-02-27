@@ -6,21 +6,21 @@ describe BookSuggestionsController do
   describe 'POST #create' do
     let(:book_suggestion) { build(:book_suggestion) }
     let!(:http_request) { post :create, params: params }
-    
+
     context 'with an authenticated user' do
       include_context 'with an authenticated user'
-      
+
       context 'with missing params' do
         let(:params) { {} }
-        
+
         it 'responds with 422 status' do
           expect(http_request).to have_http_status(:unprocessable_entity)
         end
       end
-      
+
       context 'with the required params' do
         let(:params) { { book_suggestion: attributes_for(:book_suggestion) } }
-        
+
         it 'responds with 201 status' do
           expect(response).to have_http_status(:created)
         end
@@ -79,9 +79,8 @@ describe BookSuggestionsController do
 
     context 'with an invited user' do
       let(:params) { { book_suggestion: attributes_for(:book_suggestion) } }
-        
+
       it 'responds with 201 status' do
-        byebug
         expect(response).to have_http_status(:created)
       end
     end

@@ -39,5 +39,8 @@ Rails/HasAndBelongsToMany:
 RSpec/MultipleExpectations:
   Enabled: false
 
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+  
 RSpec/NestedGroups:
   Max: 5

@@ -15,5 +15,4 @@ class BookSuggestionsController < ApplicationController
       .require(:book_suggestion)
       .permit(:synopsis, :price, :title, :author, :url, :editor, :year)
   end
-
 end
