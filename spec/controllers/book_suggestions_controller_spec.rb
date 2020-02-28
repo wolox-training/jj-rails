@@ -14,8 +14,7 @@ describe BookSuggestionsController do
         let(:params) { {} }
 
         it 'responds with 422 status' do
-          http_request
-          expect { http_request }.to have_http_status(:unprocessable_entity)
+          expect(http_request).to have_http_status(:unprocessable_entity)
         end
       end
 
@@ -28,7 +27,7 @@ describe BookSuggestionsController do
 
         it 'responds with 201 status' do
           http_request
-          expect { response }.to have_http_status(:created)
+          expect(response).to have_http_status(:created)
         end
       end
     end
@@ -38,7 +37,7 @@ describe BookSuggestionsController do
       
       it 'responds with 201 status' do
         http_request
-        expect { response }.to have_http_status(:created)
+        expect(response).to have_http_status(:created)
       end
 
       it 'creates a new book suggestion' do
@@ -56,10 +55,11 @@ describe BookSuggestionsController do
       
       it 'responds with 422 status' do
         http_request
-        expect { response }.to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
       
       it 'doesn\'t create a new book suggestion' do
+        http_request
         expect { http_request }.to change { BookSuggestion.count }.by(0)
       end
 
