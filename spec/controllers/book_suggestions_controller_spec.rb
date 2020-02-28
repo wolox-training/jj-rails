@@ -59,7 +59,6 @@ describe BookSuggestionsController do
       end
       
       it 'doesn\'t create a new book suggestion' do
-        http_request
         expect { http_request }.to change { BookSuggestion.count }.by(0)
       end
 
