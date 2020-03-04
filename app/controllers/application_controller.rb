@@ -13,10 +13,6 @@ class ApplicationController < ActionController::API
     render json: { "message": 'Not authorized for the requested resource' }, status: :forbidden
   end
 
-  rescue_from OpenLibrary::Errors::BookNotFound do |exception|
-    render json: { "message": exception }, status: :not_found
-  end
-
   private
 
   def set_locale

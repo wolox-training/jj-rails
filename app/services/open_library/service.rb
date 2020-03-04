@@ -3,13 +3,14 @@ module OpenLibrary
     include HTTParty
 
     def self.get_book(isbn)
-      response = HTTParty.get(base_url.to_s,
-                              query: { bibkeys: "ISBN:#{isbn}", format: 'json', jscmd: 'data' })
-      OpenLibrary::ResponseAdapter.book_response(response.parsed_response, isbn)
+      request = HTTParty.get(base_url.to_s,
+                             query: { bibkeys: "ISBN:#{isbn}", format: 'json', jscmd: 'data' })
+
+      OpenLibrary::ResponseAdapter.new(request.parsed_response, isbn, request.code)
     end
 
     def self.base_url
-      Rails.application.secrets.open_library[:url]
+      Rails.application.secrets.open_library_url[:url]
     end
   end
 end

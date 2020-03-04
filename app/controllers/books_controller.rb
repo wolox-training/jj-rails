@@ -10,6 +10,9 @@ class BooksController < ApplicationController
   end
 
   def detailed_book
-    render json: OpenLibrary::Service.get_book(params.require(:isbn))
+    result = OpenLibrary::Service.get_book(params.require(:isbn))
+    return render json: result.book_response, status: :ok if result.success?
+
+    render json: result.errors, status: :not_found
   end
 end
