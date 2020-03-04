@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :rents, only: %i[index show create]
+
+  resources :book_suggestions, only: %i[create]
 end
