@@ -23,7 +23,9 @@ gem 'puma', '~> 3.12'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Configure RuboCop
-gem 'rubocop'
+gem 'rubocop', '~> 0.80.0'
+gem 'rubocop-rspec', '~> 1.38', '>= 1.38.1'
+gem 'rubocop-rails', '~> 2.4', '>= 2.4.2'
 
 # Use Devise Token Auth for authentication
 gem 'devise_token_auth', '~> 1.1', '>= 1.1.3'

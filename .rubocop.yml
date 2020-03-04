@@ -1,12 +1,6 @@
-# This is the configuration used to check the rubocop source code.
+ # This is the configuration used to check the rubocop source code.
 
-Rails:
-  Enabled: true
-
-Documentation:
-  Enabled: false
-
-  AllCops:
+AllCops:
   Exclude:
     - spec/spec_helper.rb
     - spec/rails_helper.rb
@@ -15,12 +9,11 @@ Documentation:
     - config/**/*
     - bin/**/*
 
-
-LineLength:
-  Max: 99
-
-HasAndBelongsToMany:
+Style/Documentation:
   Enabled: false
+
+Layout/LineLength:
+  Max: 99
 
 Metrics/BlockLength:
   Exclude:
@@ -34,14 +27,20 @@ Style/FrozenStringLiteralComment:
 Naming/VariableNumber:
   EnforcedStyle: snake_case
 
-RSpec/ExampleLength:
-  Exclude:
+# rubocop-rspec custom configurations
 
-RSpec/AnyInstance:
-  Enabled: true
+require:
+  - rubocop-rails
+  - rubocop-rspec
 
+Rails/HasAndBelongsToMany:
+  Enabled: false
+  
 RSpec/MultipleExpectations:
   Enabled: false
 
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+  
 RSpec/NestedGroups:
-  Max: 3
+  Max: 5
