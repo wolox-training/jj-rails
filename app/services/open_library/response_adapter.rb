@@ -17,7 +17,7 @@ module OpenLibrary
     end
 
     def success?
-      @status >= 200 && @status < 400 && @body.present?
+      @status.to_s.match?(/^2..$/) && @body.present?
     end
 
     def errors
