@@ -39,7 +39,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'rake', '~> 13.0', '>= 13.0.0'
 
-gem 'sidekiq', '~> 6.0', '>= 6.0.4'
+gem 'sidekiq', '~> 6.2'
 
 gem 'redis-rails', '~> 5.0', '>= 5.0.2'
 
